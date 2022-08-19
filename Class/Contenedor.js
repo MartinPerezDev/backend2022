@@ -4,7 +4,6 @@ import { readFile, access } from "node:fs/promises";
 export class Contenedor {
   constructor(path) {
     this.path = path;
-    this.firstId = true;
   }
 
   async verifiedArchive() {

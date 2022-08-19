@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+# backup
+/desafios_anteriores
 # production
 /build
 

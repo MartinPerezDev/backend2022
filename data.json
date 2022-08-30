@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "producto 1",
+    "price": 223,
+    "thumbnail": "https://plataforma.coderhouse.com/"
+  },
+  {
+    "id": 2,
+    "title": "producto 2",
+    "price": 455,
+    "thumbnail": "https://plataforma.coderhouse.com/"
+  },
+  {
+    "id": 3,
+    "title": "producto 3",
+    "price": 6788,
+    "thumbnail": "https://plataforma.coderhouse.com/"
+  }
+]

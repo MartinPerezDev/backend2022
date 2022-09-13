@@ -5,11 +5,7 @@ const products = new Products()
 const get = async (req, res)=>{
     try{
         const jsonProducts = await products.get()
-        if(jsonProducts.length !== 0){
-            res.status(200).json(jsonProducts)
-        }else{  
-            throw Error("no hay productos disponibles")
-        }
+        res.render("mostrar", {jsonProducts})
     }
     catch(error){
         res.status(400).json({error: error.message, ruta: req.originalUrl, metodo: req.method})
@@ -33,7 +29,7 @@ const addProduct = async (req, res)=>{
         const product = req.body
         if(product){
             const id = await products.addProduct(product)
-            res.status(200).send(`Producto añadido con id: ${id}`)
+            res.redirect("/")
         }else{
             throw Error("Error al recibir data")
         }

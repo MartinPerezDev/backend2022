@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "pre entrega 1 de proyecto final",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node src/App.js",
-    "dev": "nodemon src/App.js",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "transpilate": "babel src --out-dir dist"
   },
   "repository": {
@@ -28,6 +28,10 @@
   "devDependencies": {
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.19.1",
+    "@babel/node": "^7.19.1",
     "@babel/preset-env": "^7.19.1"
+  },
+  "engines": {
+    "node": "16.14.2"
   }
 }

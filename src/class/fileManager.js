@@ -66,8 +66,8 @@ export class FileManager {
       this.items = [...this.items, item];
       writeFile(this.path, JSON.stringify(this.items, null, 2), async(err) => {
         await this.get()
-        return {id: newId}
       });
+      return {id: newId}
     } catch (err) {
       throw new Error("Error to add Item")
     }

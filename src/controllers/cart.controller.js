@@ -2,7 +2,7 @@ import { FileManager } from "../class/fileManager.js";
 import * as dotenv from 'dotenv'
 dotenv.config()
 
-const fileCart = new FileManager("./src/data/cart.json")
+const fileCart = new FileManager("./src/data/cart.js")
 
 export const getById = async (req, res)=>{
     try{

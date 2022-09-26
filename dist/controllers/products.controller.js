@@ -23,7 +23,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 dotenv.config();
 var admin = process.env.ADMIN;
-var fileProducts = new _fileManager.FileManager("./src/data/products.data.js");
+var fileProducts = new _fileManager.FileManager("./src/data/products.json");
 
 var get = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(req, res) {

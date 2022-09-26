@@ -301,6 +301,11 @@ var FileManager = /*#__PURE__*/function () {
                             return _this2.get();
 
                           case 2:
+                            return _context6.abrupt("return", {
+                              id: newId
+                            });
+
+                          case 3:
                           case "end":
                             return _context6.stop();
                         }
@@ -312,21 +317,20 @@ var FileManager = /*#__PURE__*/function () {
                     return _ref.apply(this, arguments);
                   };
                 }());
-                return _context7.abrupt("return", {
-                  id: newId
-                });
+                _context7.next = 14;
+                break;
 
-              case 12:
-                _context7.prev = 12;
+              case 11:
+                _context7.prev = 11;
                 _context7.t0 = _context7["catch"](0);
                 throw new Error("Error to add Item");
 
-              case 15:
+              case 14:
               case "end":
                 return _context7.stop();
             }
           }
-        }, _callee7, this, [[0, 12]]);
+        }, _callee7, this, [[0, 11]]);
       }));
 
       function addCart() {

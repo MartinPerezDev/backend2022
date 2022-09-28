@@ -125,9 +125,10 @@ class FileManager {
           } else {
             items = this.items[i].products.filter(res => res.id !== parseInt(id_prod));
             this.items[i].products = items;
-            i = i + 1;
           }
         }
+
+        i = i + 1;
       });
       (0, _nodeFs.writeFile)(this.path, JSON.stringify(this.items, null, 2), async err => {
         await this.get();

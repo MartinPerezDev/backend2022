@@ -1,26 +1,56 @@
-import express, { json, urlencoded } from 'express';
-import { productsRouter } from './routes/products.router.js';
-import * as dotenv from 'dotenv'
-import { cartRouter } from './routes/cart.router.js';
+import express, { json, urlencoded } from "express";
+import { Server } from "socket.io";
+import { engine } from "express-handlebars";
+import productsRouter from "./routes/products.js"
+import msgRouter from "./routes/msg.js";
+import { Msg } from "./class/msgClass.js";
+import { Products } from "./class/productsClass.js";
+import { optionsS } from "./options/sqlite.config.js";
+import { optionsM } from "./options/mysql.config.js";
 
-dotenv.config()
 const app = express();
+const PORT = process.env.PORT || 8080;
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use("/content", express.static("./src/public"));
 
-const PORT = process.env.PORT || 8080;
+const server = app.listen(PORT, () =>
+  console.log(`server started http://localhost:${PORT}`)
+);
+server.on("error", (error) =>
+  console.log(`Error en el servidor: `, error.message)
+);
+const io = new Server(server);
 
-const server = app.listen(PORT, () => console.log(`server started in http://localhost:${PORT}`));
-server.on('error', (error) => console.log(`Error en el servidor: `, error.message));
+let productsManager = new Products(optionsM, "products")
+let msgManager = new Msg(optionsS, "messages")
 
+//hbs config
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
+app.set("views", "./src/views");
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 //Routes
-app.use("/api/productos", productsRouter)
-app.use("/api/carrito", cartRouter)
+app.use("/productos", productsRouter);
+app.use("/msg", msgRouter)
 
+io.on("connection", (socket) => {
+  console.log(`Client ${socket.id} connected...`);
+  productsManager.get()
+    .then(prod => socket.emit("historyProducts", prod))
+  socket.on("addProduct", (data) => {
+    let products = [...data]
+    io.emit("historyProducts", products);
+  });
 
-app.use((req, res) => {
-    res.status(404).json({error: "Not Found", description: `route ${req.baseUrl}${req.url} method ${req.method} not implement`});
+  msgManager.getAll().then((msg)=> socket.emit("historyChat", msg))
+  socket.on("addMsg", msg=>{
+    console.log(msg)
+    io.emit("historyChat", msg)
+  })
 });

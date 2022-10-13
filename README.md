@@ -1,2 +1,2 @@
 Desafios Backend
-Actual primera pre entrega de proyecto final
+Actual: consultas mongo db

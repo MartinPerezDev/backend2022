@@ -1,40 +1,23 @@
 {
-  "name": "backend",
+  "name": "desafio",
   "version": "1.0.0",
-  "description": "pre entrega 1 de proyecto final",
-  "main": "App.js",
+  "description": "",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node src/App.js",
-    "dev": "nodemon src/App.js",
-    "transpilate": "babel src --out-dir dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EfimeroM/backend2022.git"
+    "dev": "nodemon src/App.js"
   },
   "keywords": [],
-  "author": "Juan Martin Perez",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/EfimeroM/backend2022/issues"
-  },
-  "homepage": "https://github.com/EfimeroM/backend2022#readme",
   "dependencies": {
-    "dotenv": "^16.0.2",
-    "express": "^4.18.1",
-    "firebase": "^9.12.1",
-    "moment": "^2.29.4",
-    "mongoose": "^6.6.6",
-    "uniqid": "^5.4.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.18.10",
-    "@babel/core": "^7.19.1",
-    "@babel/node": "^7.19.1",
-    "@babel/preset-env": "^7.19.1"
-  },
-  "engines": {
-    "node": "16.14.2"
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.7.2",
+    "sweetalert2": "^11.6.8"
   }
 }

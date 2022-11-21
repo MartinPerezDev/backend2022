@@ -4,12 +4,18 @@ import mongoose from "mongoose";
 import * as dotenv from 'dotenv'
 dotenv.config()
 
-class UserDao extends ContainerMongoDb{
-    constructor(){
+class UserDao extends ContainerMongoDb {
+    constructor() {
         super(userSchema)
         try {
-            mongoose.connect(process.env.URI_MONGO_DB)
-            console.log("Mongo Db Connected")
+            mongoose.connect("mongodb://localhost:27017/desafio", {
+                useNewUrlParser: true,
+                useUnifiedTopology: true
+            },
+                () => {
+                    console.log("Mongo Db Connected")
+                }
+            )
         } catch (error) {
             console.log("Error connection mongo db")
         }

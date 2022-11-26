@@ -21,6 +21,7 @@
     "mongoose": "^6.7.2",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "sweetalert2": "^11.6.8"
+    "sweetalert2": "^11.6.8",
+    "yargs": "^17.1.1-candidate.0"
   }
 }

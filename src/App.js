@@ -9,10 +9,23 @@ import { logoutRouter } from './routes/logout.router.js';
 import MongoStore from 'connect-mongo';
 import passport from 'passport'
 import { initializePassport } from './passport.config.js'
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
+import { infoRouter } from './routes/info.router.js';
+import { randomsRouter } from './routes/randoms.router.js';
+
+
+let PORT 
+yargs(hideBin(process.argv))
+  .command('connect', 'connecta la app al puerto ingresado', () => {
+    console.log("connecting...")
+  }, 
+  (argv) => {
+    PORT = argv.port || 8080
+  })
+  .parse()
 
 dotenv.config()
-
-const PORT = process.env.PORT || 8080;
 const app = express();
 const baseSession = session({
     store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/desafio" }),
@@ -30,7 +43,6 @@ initializePassport()
 app.use(passport.initialize())
 app.use(passport.session())
 
-
 const server = app.listen(PORT, () => console.log(`server started in http://localhost:${PORT}`));
 server.on('error', (error) => console.log(`Error en el servidor: `, error.message));
 
@@ -40,6 +52,8 @@ app.set('views', './src/views');
 
 //Routes
 app.get("/", sessionChecker, (req, res) => res.redirect("/login"))
+app.use("/info", infoRouter)
+app.use("/api/randoms", randomsRouter)
 
 app.use("/login", loginRouter)
 app.get("/failureLogin", (req, res) => res.render("login", { error: true }))

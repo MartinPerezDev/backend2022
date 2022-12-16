@@ -1,0 +1,19 @@
+consignas primeros puntos:
+
+ejecutar servidor modo fork: pm2 start ./src/App.js
+ejecutar servidor modo cluster: pm2 start ./src/App.js -i max
+verificar el numero de procesos: pm2 list
+permitir el modo escucha(modo fork): pm2 start ./src/App.js --watch
+finalizar procesos: pm2 delete all
+
+consigna ultimos puntos:
+
+se añadio el archivo process.json que levanta los servidores en los puertos: 8080 para consultas generales y 8082, 8083, 8084, 8085 para consultas de la ruta /api/randoms
+
+ejecutar script que levanta todos los servidores:
+
+pm2 start ./process.json
+
+este script lleva la propiedad "args": "8082" en caso de querer ejecutar el servidor en modo cluster solo basta con añadir el argumento tal que: "args": "8082 CLUSTER"
+
+#la configuracion de nginx tambien esta en la ruta raiz del proyecto: nginx.conf

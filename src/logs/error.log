@@ -1,0 +1,4 @@
+[2022-12-17T23:02:37.924] [ERROR] errorFile - route: /productos/ method: POST
+[2022-12-17T23:29:57.346] [ERROR] errorFile - route: /msg/ method: POST
+[2022-12-17T23:40:59.945] [ERROR] errorFile - route: /msg/ method: POST
+[2022-12-17T23:41:46.914] [ERROR] errorFile - route: /msg/ method: POST

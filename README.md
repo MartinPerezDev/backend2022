@@ -1,2 +1,2 @@
 Desafios Backend
-Actual: cluster & nginx
+Actual: loggers, compression y performance

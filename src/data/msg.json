@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "email": "martinperez9713@gmail.com",
+    "msg": "Hola!",
+    "fyh": "17/12/2022 23:45"
+  },
+  {
+    "id": 2,
+    "email": "coder@gmail.com",
+    "msg": "hola soy coder!",
+    "fyh": "17/12/2022 23:46"
+  },
+  {
+    "id": 3,
+    "email": "coder@gmail.com",
+    "msg": "como andas?",
+    "fyh": "17/12/2022 23:46"
+  }
+]

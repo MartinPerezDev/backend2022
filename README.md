@@ -1,2 +1,2 @@
 Desafios Backend
-Actual: loggers, compression y performance
+Actual: Dividir en capas nuestro proyecto

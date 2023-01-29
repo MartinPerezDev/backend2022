@@ -38,7 +38,7 @@ socket.on("historyProducts", (products) => {
         <tr>
             <td>${product.name}</td>
             <td>${product.price}</td>
-            <td><img src="${product.thumbnail}" alt="${product.name}"></td>
+            <td><img src="${product.picture}" alt="${product.name}"></td>
         </tr>
         `;
     });
@@ -55,8 +55,8 @@ socket.on("historyChat", (msg) => {
       contentMsg += `
       <div class="msg">
         <p class="email">${res.email}</p>
-        <p class="fyh">[ ${res.fyh} ]:</p>
-        <p class="message"> ${res.msg}</p>
+        <p class="fyh">[ ${res.date} ]:</p>
+        <p class="message"> ${res.message}</p>
       </div>
       `;
     });

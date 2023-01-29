@@ -5,11 +5,11 @@ import { initializePassport } from './passport.config.js'
 import cluster from 'cluster';
 import core from 'os';
 import { Server } from 'socket.io';
-import { Messages } from './class/messages.class.js';
 import compression from 'compression';
-import { baseSession } from './db/db.connect.js';
+import { baseSession, connectMongoDb } from './db/db.connect.js';
 import { routeConfig } from './routes/index.js';
-
+import MessageService from './services/MessageService.js';
+import ProductService from './services/ProductService.js';
 
 export const app = express();
 app.use(compression({ level: 6 }))
@@ -32,6 +32,8 @@ app.use(passport.session())
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
+connectMongoDb()
+
 if (cluster.isPrimary) {
   console.log(`Primary process ${process.pid}`)
 
@@ -50,8 +52,8 @@ if (cluster.isPrimary) {
   server.on('error', (error) => console.log(`Error en el servidor: `, error.message));
 
   const io = new Server(server);
-  let products = []
-  const msgManager = new Messages("./src/data/msg.json")
+  const productService = new ProductService()
+  const messageService = new MessageService()
   
   routeConfig()
 
@@ -59,12 +61,12 @@ if (cluster.isPrimary) {
   io.on("connection", (socket) => {
     console.log(`Client ${socket.id} connected...`);
 
-    socket.emit("historyProducts", products);
+    productService.getProducts().then((data) => socket.emit("historyProducts", data))
     socket.on("addProduct", (data) => {
       io.emit("historyProducts", data);
     });
 
-    msgManager.getAll().then((msg) => socket.emit("historyChat", msg))
+    messageService.getMessages().then((data) => socket.emit("historyChat", data))
     socket.on("addMsg", data => {
       io.emit("historyChat", data)
     })

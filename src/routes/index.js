@@ -21,13 +21,13 @@ export const routeConfig = () => {
     app.use("/api/randoms", randomsRouter)
 
     app.use("/login", loginRouter)
+    app.use("/logout", logoutRouter)
     app.get("/failureLogin", (req, res) => res.render("login", { error: true }))
 
     app.use("/signup", registerRouter)
     app.get("/failureRegister", (req, res) => res.render("signup", { error: true }))
 
     app.use("/dashboard", dashboardRouter)
-    app.use("/logout", logoutRouter)
 
     app.use("/productos", productsRouter);
     app.use("/msg", messagesRouter);

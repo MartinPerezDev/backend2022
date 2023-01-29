@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "prod1",
+    "price": "123",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/2696/2696513.png"
+  },
+  {
+    "id": 2,
+    "name": "prod2",
+    "price": "1234",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/2696/2696513.png"
+  }
+]

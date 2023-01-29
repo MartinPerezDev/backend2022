@@ -15,7 +15,7 @@ configure({
         errorFile: { appenders: ["errorFile"], level: "ERROR" }
     }
 })
+
 export const loggerWarn = getLogger("warnFile")
-//export to use in products.controller & messages.controller
 export const loggerError = getLogger("errorFile")
 export const loggerAllConsole = getLogger('consoleAll')

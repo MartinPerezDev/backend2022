@@ -1,6 +1,6 @@
 import passport from "passport";
 import local from "passport-local"
-import { UserDaoManager } from "./daos/UserDaoDb.js";
+import { UserDaoManager } from "./daos/UsersDaoDb.js";
 import { createHash, isValid } from "./utils/encrypt.js";
 
 const LocalStrategy = local.Strategy

@@ -1,2 +1,2 @@
 Desafios Backend
-Actual: Dividir en capas nuestro proyecto
+Actual: Mejorando la arquitectura de nuestra Api

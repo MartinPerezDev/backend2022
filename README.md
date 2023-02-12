@@ -1,2 +1,2 @@
-Desafios Backend
-Actual: Testeamos nuestra API REST
+Desafio Actual:
+Reformar para usar GraphQl

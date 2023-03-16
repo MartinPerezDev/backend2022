@@ -48,5 +48,5 @@ Linkedin:
 
 Github:
 
-[![github](https://img.shields.io/github/followers/EfimeroM?style=social)](https://twitter.com/)
+[![github](https://img.shields.io/github/followers/EfimeroM?style=social)](https://github.com/EfimeroM?tab=repositories)
 

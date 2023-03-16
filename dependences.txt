@@ -1,0 +1,11 @@
+npm i express - install express 
+npm i dotenv - install dotenv
+npm install --save-dev --save-exact prettier - install prettier
+npm i mongoose - install mongoose
+npm i passport - install passport
+npm i passport-local - install passport local
+npm i bcrypt - install bcrypt
+npm i express-session - install express session
+npm i connect-mongo - install connect mongo
+npm i nodemailer - install nodemailer
+npm i socket.io - install socket.io
